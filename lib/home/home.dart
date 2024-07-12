@@ -5,6 +5,7 @@ import 'package:islami_c11_friday/home/tabs/quran.dart';
 import 'package:islami_c11_friday/home/tabs/radio.dart';
 import 'package:islami_c11_friday/home/tabs/sebha.dart';
 import 'package:islami_c11_friday/home/tabs/settings.dart';
+import 'package:islami_c11_friday/my_theme_data.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home';
@@ -30,14 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            centerTitle: true,
-            backgroundColor: Colors.transparent,
             title: Text(
               "Islami",
-              style: GoogleFonts.elMessiri(
-                fontSize: 30,
-                fontWeight: FontWeight.w700,
-              ),
+              style: Theme.of(context).textTheme.bodyLarge
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
@@ -46,34 +42,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 selectedIndex = value;
                 setState(() {});
               },
-              backgroundColor: Color(0xFFB7935F),
-              type: BottomNavigationBarType.shifting,
-              selectedItemColor: Colors.black,
-              unselectedItemColor: Colors.white,
-              showUnselectedLabels: false,
-              showSelectedLabels: false,
               items: [
                 BottomNavigationBarItem(
-                    icon:
-                        ImageIcon(AssetImage("assets/images/moshaf_blue.png")),
-                    label: "",
-                    backgroundColor: Color(0xFFB7935F)),
+                  icon: ImageIcon(AssetImage("assets/images/moshaf_blue.png")),
+                  label: "",
+                ),
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage("assets/images/sebha.png")),
-                    label: "",
-                    backgroundColor: Color(0xFFB7935F)),
+                  icon: ImageIcon(AssetImage("assets/images/sebha.png")),
+                  label: "",
+                ),
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage("assets/images/radio.png")),
-                    label: "",
-                    backgroundColor: Color(0xFFB7935F)),
+                  icon: ImageIcon(AssetImage("assets/images/radio.png")),
+                  label: "",
+                ),
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage("assets/images/ahadeth.png")),
-                    label: "",
-                    backgroundColor: Color(0xFFB7935F)),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.settings),
-                    backgroundColor: Color(0xFFB7935F),
-                    label: ""),
+                  icon: ImageIcon(AssetImage("assets/images/ahadeth.png")),
+                  label: "",
+                ),
+                BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
               ]),
           body: tabs[selectedIndex],
         ),

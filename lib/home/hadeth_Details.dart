@@ -15,14 +15,9 @@ class HadethDetailsScreen extends StatelessWidget {
           image:
               DecorationImage(image: AssetImage('assets/images/main_bg.png'))),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          centerTitle: true,
           title: Text(
             model.title,
-            style: GoogleFonts.elMessiri(
-                fontSize: 30, fontWeight: FontWeight.bold),
           ),
         ),
         body: Padding(
