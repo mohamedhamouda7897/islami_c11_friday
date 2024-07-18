@@ -6,6 +6,8 @@ import 'package:islami_c11_friday/home/tabs/radio.dart';
 import 'package:islami_c11_friday/home/tabs/sebha.dart';
 import 'package:islami_c11_friday/home/tabs/settings.dart';
 import 'package:islami_c11_friday/my_theme_data.dart';
+import 'package:islami_c11_friday/providers/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home';
@@ -21,20 +23,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Stack(
       children: [
         Image.asset(
-          "assets/images/main_bg.png",
+          provider.mode == ThemeMode.light
+              ? "assets/images/main_bg.png"
+              : "assets/images/main_dark_bg.png",
           width: double.infinity,
           fit: BoxFit.fill,
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: Text(
-              "Islami",
-              style: Theme.of(context).textTheme.bodyLarge
-            ),
+            title: Text("Islami", style: Theme.of(context).textTheme.bodyLarge),
           ),
           bottomNavigationBar: BottomNavigationBar(
               currentIndex: selectedIndex,
